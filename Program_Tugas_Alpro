@@ -1,0 +1,487 @@
+#include <stdio.h>
+#include <math.h>
+
+void persegiPanjang(), persegi(), segitigaSamaSisi(), tabung(), bola(), limasSegiempat(), debit(), kecepatan(), menuPilihan(), cobaLagi(), namaNim();
+
+int menuLuasKeliling(), menuLuasVolume(), menuDebit(), menuKecepatan();
+
+float luasPersegiPanjang(float panjang, float lebar), kelilingPersegiPanjang(float panjang, float lebar), luasPersegi(float sisi), kelilingPersegi(float sisi), luasSegitiga(float alas, float tinggi), kelilingSegitiga(float sisi), luaspermukaanTabung(float jariJari, float tinggi), volumeTabung(float jariJari, float tinggi), luaspermukaanBola(float jariJari), volumeBola(float jariJari), luaspermukaanLimas(float panjang, float lebar, float sisiLebar, float sisiPanjang), volumeLimas(float panjang, float lebar, float tinggi), debitAir(float volume, float waktu), waktuAir(float volume, float debit), volumeAir(float debit, float waktu), kecepatanTempuh(float jarak, float waktu), waktu(float jarak, float kecepatan), jarak(float kecepatan, float waktu);
+
+int main()
+{
+    namaNim();
+    menuPilihan();
+    return 0;
+}
+
+float luasPersegiPanjang(float panjang, float lebar)
+{
+    return panjang * lebar;
+}
+
+float kelilingPersegiPanjang(float panjang, float lebar)
+{
+    return (panjang * 2) + (lebar * 2);
+}
+
+float luasPersegi(float sisi)
+{
+    return sisi * sisi;
+}
+
+float kelilingPersegi(float sisi)
+{
+    return sisi * 4;
+}
+
+float luasSegitiga(float alas, float tinggi)
+{
+    return 0.5 * alas * tinggi;
+}
+
+float kelilingSegitiga(float sisi)
+{
+    return sisi * 3;
+}
+
+float luaspermukaanTabung(float jariJari, float tinggi)
+{
+    return 2 * M_PI * jariJari * (jariJari + tinggi);
+}
+
+float volumeTabung(float jariJari, float tinggi)
+{
+    return M_PI * jariJari * jariJari * tinggi;
+}
+
+float luaspermukaanBola(float jariJari)
+{
+    return 4 * M_PI * jariJari * jariJari;
+}
+
+float volumeBola(float jariJari)
+{
+    return (4.0 / 3.0) * M_PI * jariJari * jariJari * jariJari;
+}
+
+float luaspermukaanLimas(float panjang, float lebar, float sisiLebar, float sisiPanjang)
+{
+    return 2 * (sisiLebar + sisiPanjang) + (panjang * lebar);
+}
+
+float volumeLimas(float panjang, float lebar, float tinggi)
+{
+    return (1.0 / 3.0) * panjang * lebar * tinggi;
+}
+
+float debitAir(float volume, float waktu)
+{
+    return volume / waktu;
+}
+
+float waktuAir(float volume, float debit)
+{
+    return volume / debit;
+}
+
+float volumeAir(float debit, float waktu)
+{
+    return debit * waktu;
+}
+
+float kecepatanTempuh(float jarak, float waktu)
+{
+    return jarak / waktu;
+}
+
+float waktu(float jarak, float kecepatan)
+{
+    return jarak / kecepatan;
+}
+
+float jarak(float kecepatan, float waktu)
+{
+    return kecepatan * waktu;
+}
+
+void persegiPanjang()
+{
+    float p, l;
+    int pilih = menuLuasKeliling();
+    if (pilih == 1)
+    {
+        printf("\nMasukkan Panjang : ");
+        scanf("%f", &p);
+        printf("\nMasukkan Lebar    : ");
+        scanf("%f", &l);
+        printf("\nLuas dari Persegi Panjang adalah : %.2f\n\n", luasPersegiPanjang(p, l));
+    }
+    else if (pilih == 2)
+    {
+        printf("\nMasukkan Panjang : ");
+        scanf("%f", &p);
+        printf("\nMasukkan Lebar   : ");
+        scanf("%f", &l);
+        printf("\nKeliling dari Persegi Panjang adalah : %.2f\n\n", kelilingPersegiPanjang(p, l));
+    }
+    else
+    {
+        printf("\nMaaf, input Anda salah. Silahkan ulangi!\n\n");
+        persegiPanjang();
+    }
+    cobaLagi();
+}
+
+void persegi()
+{
+    float s;
+    int pilih = menuLuasKeliling();
+    if (pilih == 1)
+    {
+        printf("\nMasukkan Sisi : ");
+        scanf("%f", &s);
+        printf("\nLuas dari Persegi adalah : %.2f\n\n", luasPersegi(s));
+    }
+    else if (pilih == 2)
+    {
+        printf("\nMasukkan Sisi : ");
+        scanf("%f", &s);
+        printf("\nKeliling dari Persegi adalah : %.2f\n\n", kelilingPersegi(s));
+    }
+    else
+    {
+        printf("\nMaaf, input Anda salah. Silahkan ulangi!\n\n");
+        persegi();
+    }
+    cobaLagi();
+}
+
+void segitigaSamaSisi()
+{
+    float a, t, s;
+    int pilih = menuLuasKeliling();
+    if (pilih == 1)
+    {
+        printf("\nMasukkan Alas    : ");
+        scanf("%f", &a);
+        printf("\nMasukkan Tinggi  : ");
+        scanf("%f", &t);
+        printf("\nLuas dari Segitiga adalah : %.2f\n\n", luasSegitiga(a, t));
+    }
+    else if (pilih == 2)
+    {
+        printf("\nMasukkan Sisi : ");
+        scanf("%f", &s);
+        printf("\nKeliling dari Segitiga adalah : %.2f\n\n", kelilingSegitiga(s));
+    }
+    else
+    {
+        printf("\nMaaf, input Anda salah. Silahkan ulangi!\n\n");
+        segitigaSamaSisi();
+    }
+    cobaLagi();
+}
+
+void tabung()
+{
+    float r, t;
+    int pilih = menuLuasVolume();
+    if (pilih == 1)
+    {
+        printf("\nMasukkan jari-jari : ");
+        scanf("%f", &r);
+        printf("\nMasukkan tinggi    : ");
+        scanf("%f", &t);
+        printf("\nLuas permukaan dari tabung adalah : %.2f\n\n", luaspermukaanTabung(r, t));
+    }
+    else if (pilih == 2)
+    {
+        printf("\nMasukkan jari-jari : ");
+        scanf("%f", &r);
+        printf("\nMasukkan tinggi    : ");
+        scanf("%f", &t);
+        printf("\nVolume dari tabung adalah : %.2f\n\n", volumeTabung(r, t));
+    }
+    else
+    {
+        printf("\nMaaf, input Anda salah. Silahkan ulangi!\n\n");
+        tabung();
+    }
+    cobaLagi();
+}
+
+void bola()
+{
+    float r;
+    int pilih = menuLuasVolume();
+    if (pilih == 1)
+    {
+        printf("\nMasukkan jari-jari : ");
+        scanf("%f", &r);
+        printf("\nLuas permukaan dari bola adalah : %.2f\n\n", luaspermukaanBola(r));
+    }
+    else if (pilih == 2)
+    {
+        printf("\nMasukkan jari-jari : ");
+        scanf("%f", &r);
+        printf("\nVolume dari bola adalah : %.2f\n\n", volumeBola(r));
+    }
+    else
+    {
+        printf("\nMaaf, input Anda salah. Silahkan ulangi!\n\n");
+        bola();
+    }
+    cobaLagi();
+}
+
+void limasSegiempat()
+{
+    float p, l, t;
+    int pilih = menuLuasVolume();
+    if (pilih == 1)
+    {
+        printf("\nMasukkan Panjang : ");
+        scanf("%f", &p);
+        printf("\nMasukkan Lebar   : ");
+        scanf("%f", &l);
+        printf("\nMasukkan Tinggi  : ");
+        scanf("%f", &t);
+        float sl = 0.5 * sqrt(pow((p / 2.0), 2) + pow(t, 2)) * l;
+        float sp = 0.5 * sqrt(pow((l / 2.0), 2) + pow(t, 2)) * p;
+        printf("\nLuas permukaan dari limas segiempat adalah : %.2f\n\n", luaspermukaanLimas(p, l, sl, sp));
+    }
+    else if (pilih == 2)
+    {
+        printf("\nMasukkan Panjang : ");
+        scanf("%f", &p);
+        printf("\nMasukkan Lebar   : ");
+        scanf("%f", &l);
+        printf("\nMasukkan Tinggi  : ");
+        scanf("%f", &t);
+        printf("\nVolume dari limas segiempat adalah : %.2f\n\n", volumeLimas(p, l, t));
+    }
+    else
+    {
+        printf("\nMaaf, input Anda salah. Silahkan ulangi!\n\n");
+        limasSegiempat();
+    }
+    cobaLagi();
+}
+
+void debit()
+{
+    float v, w, d;
+    int pilih = menuDebit();
+    if (pilih == 1)
+    {
+        printf("\nMasukkan Volume air (liter) : ");
+        scanf("%f", &v);
+        printf("\nMasukkan Waktu (jam)        : ");
+        scanf("%f", &w);
+        printf("\nDebit dari air adalah : %.2f (liter/jam)\n\n", debitAir(v, w));
+    }
+    else if (pilih == 2)
+    {
+        printf("\nMasukkan Debit air (liter/jam) : ");
+        scanf("%f", &d);
+        printf("\nMasukkan Waktu (jam)           : ");
+        scanf("%f", &w);
+        printf("\nVolume dari air adalah : %.2f (liter)\n\n", volumeAir(d, w));
+    }
+    else if (pilih == 3)
+    {
+        printf("\nMasukkan Volume air (liter)    : ");
+        scanf("%f", &v);
+        printf("\nMasukkan Debit air (liter/jam) : ");
+        scanf("%f", &d);
+        printf("\nWaktu yang diperlukan adalah : %.2f (jam)\n\n", waktuAir(v, d));
+    }
+    else
+    {
+        printf("\nMaaf, input Anda salah. Silahkan ulangi!\n\n");
+        debit();
+    }
+    cobaLagi();
+}
+
+void kecepatan()
+{
+    float j, w, k;
+    int pilih = menuKecepatan();
+    if (pilih == 1)
+    {
+        printf("\nMasukkan Jarak tempuh (km)  : ");
+        scanf("%f", &j);
+        printf("\nMasukkan Waktu tempuh (jam) : ");
+        scanf("%f", &w);
+        printf("\nKecepatannya adalah : %.2f (km/j) \n\n", kecepatanTempuh(j, w));
+    }
+    else if (pilih == 2)
+    {
+        printf("\nMasukkan Kecepatan (km/j)   : ");
+        scanf("%f", &k);
+        printf("\nMasukkan Waktu tempuh (jam) : ");
+        scanf("%f", &w);
+        printf("\nJarak tempuhnya adalah : %.2f (km)\n\n", jarak(k, w));
+    }
+    else if (pilih == 3)
+    {
+        printf("\nMasukkan Jarak tempuh (km)  : ");
+        scanf("%f", &j);
+        printf("\nMasukkan Kecepatan (km/j)   : ");
+        scanf("%f", &k);
+        printf("\nWaktu tempuhnya adalah : %.2f (jam)\n\n", waktu(j, k));
+    }
+    else
+    {
+        printf("\nMaaf, input Anda salah. Silahkan ulangi!\n\n");
+        kecepatan();
+    }
+    cobaLagi();
+}
+
+void namaNim()
+{
+    char mulai;
+    printf("||================================================||\n");
+    printf("|| Nama : I Gusti Ngurah Putu Astrawan            ||\n");
+    printf("|| NIM  : 2205551071                              ||\n");
+    printf("||================================================||\n");
+    printf("||         Tekan Enter Untuk Melanjutkan !        ||\n");
+    printf("||================================================||\n");
+    scanf("%c", &mulai);
+}
+
+void menuPilihan()
+{
+    int menu;
+    printf("\n|| ==================================================== ||\n");
+    printf("||                       Menu                           ||\n");
+    printf("|| ==================================================== ||\n");
+    printf("|| 1. Persegi Panjang                                   ||\n");
+    printf("|| 2. Persegi                                           ||\n");
+    printf("|| 3. Segitiga Sama sisi                                ||\n");
+    printf("|| 4. Tabung                                            ||\n");
+    printf("|| 5. Bola                                              ||\n");
+    printf("|| 6. Limas Segiempat                                   ||\n");
+    printf("|| 7. Debit/Waktu/Volume Air                            ||\n");
+    printf("|| 8. Kecepatan/Waktu/Jarak Tempuh                      ||\n");
+    printf("|| ==================================================== ||\n");
+    printf("\n");
+    printf("Pilihan Anda: ");
+    scanf("%d", &menu);
+    switch (menu)
+    {
+    case 1:
+        persegiPanjang();
+        break;
+    case 2:
+        persegi();
+        break;
+    case 3:
+        segitigaSamaSisi();
+        break;
+    case 4:
+        tabung();
+        break;
+    case 5:
+        bola();
+        break;
+    case 6:
+        limasSegiempat();
+        break;
+    case 7:
+        debit();
+        break;
+    case 8:
+        kecepatan();
+        break;
+    default:
+        printf("Maaf, input Anda salah. Silahkan ulangi!\n");
+        menuPilihan();
+        break;
+    }
+}
+
+int menuLuasKeliling()
+{
+    int pilih1;
+    printf("|| ================================================== ||\n");
+    printf("||           Apa yang ingin Anda cari?                ||\n");
+    printf("|| ================================================== ||\n");
+    printf("|| 1. Luas                                            ||\n");
+    printf("|| 2. Keliling                                        ||\n");
+    printf("|| ================================================== ||\n\n");
+    printf("Pilihan Anda: ");
+    scanf("%d", &pilih1);
+    return pilih1;
+}
+
+int menuLuasVolume()
+{
+    int pilih2;
+    printf("|| ================================================== ||\n");
+    printf("||           Apa yang ingin Anda cari?                ||\n");
+    printf("|| ================================================== ||\n");
+    printf("|| 1. Luas Permukaan                                  ||\n");
+    printf("|| 2. Volume                                          ||\n");
+    printf("|| ================================================== ||\n\n");
+    printf("Pilihan Anda: ");
+    scanf("%d", &pilih2);
+    return pilih2;
+}
+
+int menuDebit()
+{
+    int pilih3;
+    printf("|| ================================================== ||\n");
+    printf("||           Apa yang ingin Anda cari?                ||\n");
+    printf("|| ================================================== ||\n");
+    printf("|| 1. Debit Air                                       ||\n");
+    printf("|| 2. Volume Air                                      ||\n");
+    printf("|| 3. Waktu                                           ||\n");
+    printf("|| ================================================== ||\n\n");
+    printf("Pilihan Anda: ");
+    scanf("%d", &pilih3);
+    return pilih3;
+}
+
+int menuKecepatan()
+{
+    int pilih4;
+    printf("|| ================================================== ||\n");
+    printf("||           Apa yang ingin Anda cari?                ||\n");
+    printf("|| ================================================== ||\n");
+    printf("|| 1. Kecepatan Tempuh                                ||\n");
+    printf("|| 2. Jarak Tempuh                                    ||\n");
+    printf("|| 3. Waktu Tempuh                                    ||\n");
+    printf("|| ================================================== ||\n\n");
+    printf("Pilihan Anda: ");
+    scanf("%d", &pilih4);
+    return pilih4;
+}
+
+void cobaLagi()
+{
+    int pilihanUtama;
+    printf("||================================================||\n");
+    printf("|| Apakah Anda ingin menjalankan program kembali? ||\n");
+    printf("||================================================||\n");
+    printf("|| 1. Iya                                         ||\n");
+    printf("|| 2. Tidak                                       ||\n");
+    printf("||================================================||\n");
+    printf("\nPilihan Anda: ");
+    scanf("%d", &pilihanUtama);
+    switch (pilihanUtama)
+    {
+    case 1:
+        system("clear");
+        menuPilihan();
+    case 2:
+        system("clear");
+        break;
+    default:
+        printf("\nMaaf, input Anda salah. Silahkan ulangi!\n");
+        cobaLagi();
+    }
+}
